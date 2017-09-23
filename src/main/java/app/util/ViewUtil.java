@@ -29,6 +29,12 @@ public class ViewUtil {
         return render(request, new HashMap<>(), Path.Template.NOT_FOUND);
     };
 
+    public static Route serverError = (Request request, Response response) -> {
+        response.status(HttpStatus.INTERNAL_SERVER_ERROR_500);
+        return render(request, new HashMap<>(), Path.Template.SERVER_ERROR);
+    };
+
+
     private static VelocityTemplateEngine strictVelocityEngine() {
         VelocityEngine configuredEngine = new VelocityEngine();
         configuredEngine.setProperty("runtime.references.strict", true);

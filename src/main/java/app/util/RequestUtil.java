@@ -1,6 +1,6 @@
 package app.util;
 
-import spark.*;
+import spark.Request;
 
 public class RequestUtil {
 
@@ -31,6 +31,32 @@ public class RequestUtil {
     public static String getSessionCurrentUser(Request request) {
         return request.session().attribute("currentUser");
     }
+
+    // ============================ Config User
+    public static String getQueryConfigUserName(Request request) {
+        return request.queryParams("userName");
+    }
+
+    public static String getQueryConfigUserPassword(Request request) {
+        return request.queryParams("password");
+    }
+
+    public static String getQueryConfigUserPasswordConfirm(Request request) {
+        return request.queryParams("passwordConfirm");
+    }
+
+    public static String getQueryConfigUserType(Request request) {
+        return request.queryParams("type");
+    }
+
+    public static String getQueryConfigUserEmails(Request request) {
+        return request.queryParams("emails");
+    }
+
+    public static String getQueryConfigDeleteCmd(Request request) {
+        return request.queryParams("delete");
+    }
+
 
     public static boolean removeSessionAttrLoggedOut(Request request) {
         Object loggedOut = request.session().attribute("loggedOut");
